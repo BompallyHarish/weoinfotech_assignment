@@ -1,0 +1,19 @@
+const jwt = require('jsonwebtoken')
+const User = require('./models/user')
+
+const auth = async (req, res, next )=>{
+        
+    try{
+        const token = req.cookies.jwt
+        const decodedUser= jwt.verify(token,'weoinfotech')
+        const user = await User.findOne({_id: decodedUser._id})
+        if(!user)  { throw new Error()}
+        req.user = user
+        req.token= token
+        next()
+    }catch(e){
+        res.send({error: 'Please Authenticate'})
+    }
+    
+} 
+module.exports= auth

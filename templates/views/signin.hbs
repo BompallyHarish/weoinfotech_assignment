@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn Page</title>
+</head>
+<body>
+    <h1 align="center"> welcome to the WEO infotech SignIn page</h1>
+    <h2>Please fill all the necessary details</h2><br> <br>
+    <a href="/">Home</a>
+     <a href="/login">LogIn</a><br> <br>
+
+    <form action="/signin" method="post"> 
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Name" name="name" id="name" required>
+            </div><br>
+
+            <div>
+                <label for="password">Password:</label>
+                <input type="text" placeholder="Password" id="password" name="password" required>
+            </div><br>
+
+            <div>
+                <label for="confirmpassword">Confirm Password:</label>
+                <input type="text" placeholder="ConfirmPassword" id="confirmpassword" name="confirmpassword" required>
+            </div><br>
+            
+            <div>
+                <label for="designation" nmae="designation" id="designation">Designation:</label>
+                <select id="designation" name="designation"> 
+                    <option value="manager">Manager</option>
+                    <option value="employee">Employee</option>
+                    <option value="Officeassistant">Office Assistant</option>
+                </select>
+           
+            </div><br>
+
+
+            <br><br>
+            <div>
+                <input type="submit" value="SignIn">
+            </div>
+
+    </form> <br>
+
+        
+</body>
+</html>
