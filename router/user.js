@@ -42,7 +42,7 @@ router.post('/signin', async (req,res)=>{
         }
         const user = new User(userdata)
         const token = await user.generateAuthToken()
-        res.cookie("febblar", token)
+        res.cookie("jwt", token)
         await user.save()
         // console.log(req.cookies.jwt)
         res.render('success',{user})
@@ -67,8 +67,8 @@ router.post('/login', async (req,res)=>{
     try{
         const user = await User.findbycredentials(req.body.customercode, req.body.password)
         const token = await user.generateAuthToken()
-        res.cookie("febblar",token)
-        res.render('success',{user})
+        res.cookie("jwt",token)
+        res.render('success')
         console.log(req.cookies.jwt)
     }catch(e){
         res.send(e)
@@ -76,7 +76,7 @@ router.post('/login', async (req,res)=>{
 })
 
 
-router.get('/attendance', async (req,res)=>{
+router.get('/attendance', auth,async (req,res)=>{
     res.render('attendance')    
 })
 
