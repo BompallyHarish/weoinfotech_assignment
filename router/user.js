@@ -68,7 +68,7 @@ router.post('/login', async (req,res)=>{
         const user = await User.findbycredentials(req.body.customercode, req.body.password)
         const token = await user.generateAuthToken()
         res.cookie("jwt",token)
-        res.render('success')
+        res.render('success',{user})
     }catch(e){
         res.send(e)
     }
