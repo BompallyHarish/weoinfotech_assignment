@@ -24,6 +24,10 @@ const port = 3000 || process.env.PORT
 //public path initialization
 app.use(express.static(publicPath))
 
+
+//cookie-parser initialization
+app.use(cookieparser())
+
 //hbs intialization
 app.set('view engine','hbs')
 app.set('views', viewspath)
@@ -36,8 +40,7 @@ app.use(express.urlencoded({extended: false}))
 //Router Initialization
 app.use(userRouter)
 
-//cookie-parser initialization
-app.use(cookieparser())
+
 
 
 // server Initialization

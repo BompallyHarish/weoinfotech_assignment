@@ -42,7 +42,7 @@ router.post('/signin', async (req,res)=>{
         }
         const user = new User(userdata)
         const token = await user.generateAuthToken()
-        res.cookie("jwt", token)
+        res.cookie("vrindha", token)
         await user.save()
         // console.log(req.cookies.jwt)
         res.render('success',{user})
@@ -53,6 +53,10 @@ router.post('/signin', async (req,res)=>{
     }    
 
 
+})
+router.get('/cookiecheck',(req,res)=>{
+    console.log(`token = ${req.cookies}`)
+    res.send(req.cookies)
 })
 
 router.get('/signin/success', (req,res)=>{

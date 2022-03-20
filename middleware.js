@@ -4,7 +4,7 @@ const User = require('./models/user')
 const auth = async (req, res, next )=>{
         
     try{
-        const token = req.cookies.jwt
+        const token = req.cookies.vrindha
         const decodedUser= jwt.verify(token,'weoinfotech')
         const user = await User.findOne({_id: decodedUser._id})
         if(!user)  { throw new Error()}
